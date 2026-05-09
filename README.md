@@ -91,3 +91,28 @@ grindos/
 ├── GigsScreen.js     ← Gig management
 ├── TasksScreen.js    ← Daily task list
 └── LedgerScreen.js   ← Money tracker
+
+---
+
+## 🔧 Setup Instructions
+
+### Prerequisites
+- Node.js (v18+)
+- MySQL Workbench
+- Expo Go app (on Android phone)
+
+### 1. Database Setup
+Open MySQL Workbench and run:
+```sql
+CREATE DATABASE grindos;
+USE grindos;
+-- Run the full schema from backend/db_schema.sql
+```
+
+### 2. Backend Setup
+```bash
+cd backend
+npm install
+```
+
+Create `.env` file:
