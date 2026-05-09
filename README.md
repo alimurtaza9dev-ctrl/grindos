@@ -122,3 +122,50 @@ DB_USER=root
 DB_PASSWORD=1234
 DB_NAME=grindos
 PORT=5000
+
+Run backend:
+```bash
+node server.js
+```
+
+### 3. Mobile Setup
+```bash
+cd mobile
+npm install
+```
+
+Update `api.js` with your PC's IP address:
+```javascript
+const BASE_URL = 'http://YOUR_IP:5000/api';
+```
+
+Run app:
+```bash
+npx expo start
+```
+
+Scan QR code with **Expo Go** app on your phone.
+
+---
+
+## 📦 APK File
+
+Download the APK here: *(link will be added after build)*
+
+---
+
+## 👥 Group Members
+
+| Name | Role |
+|---|---|
+| Ali Murtaza | Full Stack Developer |
+| Member 2 | [Role] |
+| Member 3 | [Role] |
+
+---
+
+## 📚 Course Information
+
+- **Course:** Mobile Application Development
+- **Assignment:** #2 — React Native App with Database
+- **University:** [Your University Name]
