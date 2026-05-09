@@ -159,8 +159,8 @@ Download the APK here: *(link will be added after build)*
 | Name | Role |
 |---|---|
 | Ali Murtaza | Full Stack Developer |
-| Member 2 | [Role] |
-| Member 3 | [Role] |
+| M.Salman Iqbal | [Frontend Developer] |
+| M.Abdullah Tariq | [API and Database Management] |
 
 ---
 
@@ -168,4 +168,4 @@ Download the APK here: *(link will be added after build)*
 
 - **Course:** Mobile Application Development
 - **Assignment:** #2 — React Native App with Database
-- **University:** [Your University Name]
+- **University:** [Government College University Faisalabad]
