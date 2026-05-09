@@ -71,3 +71,23 @@ The Hustle Score (0–100) is calculated every week based on real performance:
 ---
 
 ## 📁 Project Structure
+
+grindos/
+├── backend/                  ← Node.js + Express REST API
+│   ├── server.js             ← Main server entry point
+│   ├── db.js                 ← MySQL connection
+│   └── routes/
+│       ├── users.js          ← Auth + streak logic
+│       ├── gigs.js           ← Gig CRUD operations
+│       ├── tasks.js          ← Task CRUD operations
+│       ├── ledger.js         ← Income/expense operations
+│       └── hustle.js         ← Hustle Score algorithm
+└── mobile/                   ← React Native Expo App
+├── App.js                ← Navigation + auth state
+├── api.js                ← Axios API configuration
+└── screens/
+├── LoginScreen.js    ← User login
+├── HomeScreen.js     ← Hustle Score dashboard
+├── GigsScreen.js     ← Gig management
+├── TasksScreen.js    ← Daily task list
+└── LedgerScreen.js   ← Money tracker
