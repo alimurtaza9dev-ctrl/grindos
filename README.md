@@ -116,3 +116,9 @@ npm install
 ```
 
 Create `.env` file:
+
+DB_HOST=localhost
+DB_USER=root
+DB_PASSWORD=1234
+DB_NAME=grindos
+PORT=5000
