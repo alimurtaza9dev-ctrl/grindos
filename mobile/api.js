@@ -1,5 +1,10 @@
 import axios from 'axios';
 
-const BASE_URL = 'http://192.168.10.100:5000/api';
+const BASE_URL = 'https://babbling-copier-backfire.ngrok-free.dev/api';
 
-export const API = axios.create({ baseURL: BASE_URL });
+export const API = axios.create({ 
+  baseURL: BASE_URL,
+  headers: {
+    'ngrok-skip-browser-warning': 'true'
+  }
+});
