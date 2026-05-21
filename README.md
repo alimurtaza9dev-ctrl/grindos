@@ -6,29 +6,43 @@
 ![React Native](https://img.shields.io/badge/React_Native-Expo-blue)
 ![Database](https://img.shields.io/badge/Database-MySQL-orange)
 ![Backend](https://img.shields.io/badge/Backend-Node.js-brightgreen)
+![University](https://img.shields.io/badge/University-GCUF-red)
 
 ---
 
-## 📱 App Screens
+## 👥 Group Members
 
-| Login | Home | Gigs |
+| Name | Roll No. | Role |
 |---|---|---|
-| Secure login with MySQL | Hustle Score dashboard | Track freelance gigs |
+| Ali Murtaza | 240478 | Frontend Management |
+| M. Salman Iqbal | 240432 | Database Management |
+| M. Abdullah Tariq | 240475 | Backend Management |
 
-| Tasks | Ledger |
-|---|---|
-| Daily to-do list | Income & expense tracker |
+**University:** Government College University Faisalabad
+**Course:** Mobile Application Development — Assignment #2
 
 ---
 
-## 🚀 Features
+## 📱 Features
 
-- 🔐 **Login System** — Secure user authentication connected to MySQL database
-- 💼 **Gig Tracker** — Add, manage and track freelance gigs with 3 status types (Active / Completed / Unpaid)
-- ✅ **Daily Grind** — Daily task list that resets every midnight — no excuses
-- 💰 **Money Ledger** — Track every rupee of income and expenses with real-time profit calculation
-- 🔥 **Hustle Score** — Unique algorithm that scores your weekly performance out of 100
-- 📈 **Streak System** — Daily login streak that rewards consistency — miss a day and it resets
+- 🔐 **Login System** — Secure authentication with MySQL database
+- 👆 **Fingerprint Login** — Biometric authentication via expo-local-authentication
+- 💼 **Gig Tracker** — Manage freelance projects with Active/Completed/Unpaid status
+- ✅ **Daily Grind** — Daily task list that resets every midnight
+- 💰 **Money Ledger** — Track income and expenses with real-time profit calculation
+- 🔥 **Hustle Score** — Unique algorithm scoring weekly performance out of 100
+- 📈 **Streak System** — Daily login streak rewarding consistency
+
+---
+
+## ⚡ Hustle Score Algorithm (Unique Feature)
+
+| Factor | Max Points | Formula |
+|---|---|---|
+| Tasks completed | 40 pts | (done ÷ total) × 40 |
+| Gigs closed | 30 pts | gigs × 10 (max 30) |
+| Income vs goal | 20 pts | (earned ÷ goal) × 20 |
+| Daily streak | 10 pts | 1pt per streak day |
 
 ---
 
@@ -38,18 +52,20 @@
 |---|---|
 | Mobile App | React Native (Expo) |
 | Backend API | Node.js + Express |
-| Database | MySQL |
-| Database Manager | MySQL Workbench |
-| APK Build | EAS Build (Expo) |
+| Database | MySQL (MySQL Workbench) |
+| Tunneling | ngrok |
+| Biometrics | expo-local-authentication |
+| APK Build | EAS Build |
+
+> **Note:** MySQL was used instead of Firebase/SQLite as it is a professional-grade relational database demonstrating the same connectivity and CRUD concepts, approved by the instructor.
 
 ---
 
 ## 🗄️ Database Schema
 
 ```sql
--- 5 Tables
-users        → User profiles, weekly goals, streaks
-gigs         → Freelance projects and their status
+users        → User profiles, goals, streaks
+gigs         → Freelance projects and status
 tasks        → Daily to-do items (date based)
 ledger       → Income and expense entries
 hustle_scores → Weekly performance scores
@@ -57,115 +73,51 @@ hustle_scores → Weekly performance scores
 
 ---
 
-## ⚡ Hustle Score Algorithm (Unique Feature)
+## 🔧 Setup Instructions
 
-The Hustle Score (0–100) is calculated every week based on real performance:
+### Backend
+```bash
+cd backend
+npm install
+# Create .env with MySQL credentials
+node server.js
+```
 
-| Factor | Max Points | How |
-|---|---|---|
-| ✅ Tasks completed | 40 pts | % of daily tasks done |
-| 💼 Gigs closed | 30 pts | 10pts per closed gig |
-| 💰 Income vs goal | 20 pts | Earned ÷ weekly goal × 20 |
-| 🔥 Daily streak | 10 pts | 1pt per streak day |
+### Mobile
+```bash
+cd mobile
+npm install
+# Update api.js with your ngrok URL
+npx expo start
+```
+
+---
+
+## 📦 APK Download
+[Download APK](https://expo.dev/artifacts/eas/dvjc2EE5uNDiHjaK5vz5kv.apk)
 
 ---
 
 ## 📁 Project Structure
 
+```
 grindos/
-├── backend/                  ← Node.js + Express REST API
-│   ├── server.js             ← Main server entry point
-│   ├── db.js                 ← MySQL connection
+├── backend/
+│   ├── server.js
+│   ├── db.js
 │   └── routes/
-│       ├── users.js          ← Auth + streak logic
-│       ├── gigs.js           ← Gig CRUD operations
-│       ├── tasks.js          ← Task CRUD operations
-│       ├── ledger.js         ← Income/expense operations
-│       └── hustle.js         ← Hustle Score algorithm
-└── mobile/                   ← React Native Expo App
-├── App.js                ← Navigation + auth state
-├── api.js                ← Axios API configuration
-└── screens/
-├── LoginScreen.js    ← User login
-├── HomeScreen.js     ← Hustle Score dashboard
-├── GigsScreen.js     ← Gig management
-├── TasksScreen.js    ← Daily task list
-└── LedgerScreen.js   ← Money tracker
-
----
-
-## 🔧 Setup Instructions
-
-### Prerequisites
-- Node.js (v18+)
-- MySQL Workbench
-- Expo Go app (on Android phone)
-
-### 1. Database Setup
-Open MySQL Workbench and run:
-```sql
-CREATE DATABASE grindos;
-USE grindos;
--- Run the full schema from backend/db_schema.sql
+│       ├── users.js
+│       ├── gigs.js
+│       ├── tasks.js
+│       ├── ledger.js
+│       └── hustle.js
+└── mobile/
+    ├── App.js
+    ├── api.js
+    └── screens/
+        ├── LoginScreen.js
+        ├── HomeScreen.js
+        ├── GigsScreen.js
+        ├── TasksScreen.js
+        └── LedgerScreen.js
 ```
-
-### 2. Backend Setup
-```bash
-cd backend
-npm install
-```
-
-Create `.env` file:
-
-DB_HOST=localhost
-DB_USER=root
-DB_PASSWORD=1234
-DB_NAME=grindos
-PORT=5000
-
-Run backend:
-```bash
-node server.js
-```
-
-### 3. Mobile Setup
-```bash
-cd mobile
-npm install
-```
-
-Update `api.js` with your PC's IP address:
-```javascript
-const BASE_URL = 'http://YOUR_IP:5000/api';
-```
-
-Run app:
-```bash
-npx expo start
-```
-
-Scan QR code with **Expo Go** app on your phone.
-
----
-
-## 📦 APK File
-
-Download the APK here: *(link will be added after build)*
-
----
-
-## 👥 Group Members
-
-| Name | Role |
-|---|---|
-| Ali Murtaza | Full Stack Developer |
-| M.Salman Iqbal | [Frontend Developer] |
-| M.Abdullah Tariq | [API and Database Management] |
-
----
-
-## 📚 Course Information
-
-- **Course:** Mobile Application Development
-- **Assignment:** #2 — React Native App with Database
-- **University:** [Government College University Faisalabad]
